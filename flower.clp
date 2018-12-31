@@ -18,38 +18,32 @@
 	(test(>= ?var 10))
 	(test(< ?var 50)) 
 =>
-	(assert (Height (PlantHeight small)))
-	(printout t "The Plant's size is small" crlf))
+	(assert (Height (PlantHeight small))))
 
 (defrule MediumHeight "Rule Two"
 	(Size (PlantSize ?var))
 	(test(>= ?var 50))
 	(test(< ?var 150)) 
 =>
-	(assert (Height (PlantHeight medium)))
-	(printout t "The Plant's size is medium" crlf))
+	(assert (Height (PlantHeight medium))))
 	
 (defrule TallHeight "Rule Four"
 	(Size (PlantSize ?var))
 	(test(>= ?var 150))
 =>
-	(assert (Height (PlantHeight tall)))
-	(printout t "The Plant's size is tall" crlf))
+	(assert (Height (PlantHeight tall))))
 	
 ;rules to define Life Type
 
 (defrule AnnualType "Rule Five"
 	(LifeCycle (PLifeCycle one))
 =>
-	(assert (LifeType (PLifeType annual)))
-	(printout t "The Plant's life is annual" crlf))
+	(assert (LifeType (PLifeType annual))))
 
 (defrule PerennialType "Rule Six"
 	(LifeCycle (PLifeCycle more)) 
 =>
-	(assert (LifeType (PLifeType perennial)))
-	(printout t "The Plant's life is perennial" crlf))
-
+	(assert (LifeType (PLifeType perennial))))
 
 ;rules to define Flower Name
 
@@ -59,23 +53,20 @@
 	(LifeType (PLifeType perennial))
 	(Root (PlantRoot bulb))
 =>
-	(assert (Name (PlantName iris)))
-	(printout t "The Plant's Name is Iris" crlf))
+	(assert (Name (PlantName Iris))))
 	
 (defrule FlowerAnemone "Rule Eight"
 	(Season (PlantSeason autumn))
 	(Color (PlantColor white | pink | pinkish-red))
 =>
-	(assert (Name (PlantName Anemone)))
-	(printout t "The Plant's Name is Anemone" crlf))
+	(assert (Name (PlantName Anemone))))
 	
 (defrule FlowerChrystanthemum "Rule Nine"
 	(Season (PlantSeason autumn))
 	(Height (PlantHeight medium))
 	(Color (PlantColor yellow | white | purple | red))
 =>
-	(assert (Name (PlantName Chrysanthemum)))
-	(printout t "The Plant's Name is Chrysanthemum" crlf))
+	(assert (Name (PlantName Chrysanthemum))))
 	
 (defrule FlowerFreesia "Rule Ten"
 	(Season (PlantSeason spring))
@@ -83,8 +74,7 @@
 	(Color (PlantColor white | yellow | orange | purple | red))
 	(Perfume (PlantPerfume true))
 =>
-	(assert (Name (PlantName Freesia)))
-	(printout t "The Plant's Name is Freesia" crlf))
+	(assert (Name (PlantName Freesia))))
 	
 (defrule FlowerDahlia "Rule Eleven"
 	(LifeType (PLifeType perennial))
@@ -92,16 +82,14 @@
 	(Root (PlantRoot bulb))
 	(Season (PlantSeason summer))
 =>
-	(assert (Name (PlantName Dahlia)))
-	(printout t "The Plant's name is Dahlia" crlf))
+	(assert (Name (PlantName Dahlia))))
 	
 (defrule FlowerNarcissus "Rule Twelve"
 	(Season (PlantSeason spring))
 	(Root (PlantRoot bulb))
 	(Color (PlantColor yellow | white))
 =>
-	(assert (Name (PlantName Narcissus)))
-	(printout t "The Plant's name is Narcissus" crlf))	
+	(assert (Name (PlantName Narcissus))))
 	
 (defrule FlowerCamellia "Rule Thirteen"
 	(Soil (PlantSoil acidic))
@@ -109,8 +97,7 @@
 	(LifeType (PLifeType perennial))
 	(Root (PlantRoot root))
 =>
-	(assert (Name (PlantName Camellia)))
-	(printout t "The Plant's name is Camellia" crlf))
+	(assert (Name (PlantName Camellia))))
 
 (defrule FlowerLily "Rule Fourteen"
 	(Season (PlantSeason spring))
@@ -118,31 +105,27 @@
 	(Perfume (PlantPerfume true))
 	(LifeType (PLifeType perennial))
 =>
-	(assert (Name (PlantName Lily)))
-	(printout t "The Plant's name is Lily" crlf))	
+	(assert (Name (PlantName Lily))))
 	
 (defrule FlowerBegonia "Rule Fifteen"
 	(Height (PlantHeight small))
 	(LifeType (PLifeType annual))
 	(Soil (PlantSoil rich | loose | fertile))
 =>
-	(assert (Name (PlantName Begonia)))
-	(printout t "The Plant's name is Begonia" crlf))
+	(assert (Name (PlantName Begonia))))
 	
 (defrule FlowerAzalea "Rule Sixteen"
 	(Season (PlantSeason winter))
 	(Color (PlantColor white | pink | red))
 =>
-	(assert (Name (PlantName Azalea)))
-	(printout t "The Plant's name is Azalea" crlf))
+	(assert (Name (PlantName Azalea))))
 
 (defrule FlowerAnemone2 "Rule Seventeen"
 	(LifeType (PLifeType perennial))
 	(Root (PlantRoot root))
 	(Color (PlantColor white | red | blue | yellow))
 =>
-	(assert (Name (PlantName Anemone)))
-	(printout t "The Plant's name is Anemone" crlf))
+	(assert (Name (PlantName Anemone))))
 
 (defrule FlowerRose "Rule Eighteen"
 	(LifeType (PLifeType perennial))
@@ -151,14 +134,12 @@
 	(Perfume (PlantPerfume true))
 	(Soil (PlantSoil well-drained))
 =>
-	(assert (Name (PlantName Rose)))
-	(printout t "The Plant's name is Rose" crlf))	
+	(assert (Name (PlantName Rose))))
 	
 (defrule FlowerWhiteLily "Rule Nineteen"
 	(Name (PlantName Lily))
 	(Perfume (PlantPerfume true))
 =>
-	(assert (Name (PlantName WhiteLily)))
-	(printout t "The Plant's name is PlantName White Lily" crlf))
+	(assert (Name (PlantName White-Lily))))
 
 ;End CLIPS

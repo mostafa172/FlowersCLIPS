@@ -6,6 +6,8 @@
 package Interfaces;
 
 import java.awt.TextField;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -59,6 +61,8 @@ public class JFrameInterface extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         SizeSliderTextField = new javax.swing.JTextField();
+        FlowerNameJLabel = new javax.swing.JLabel();
+        FlowerNameJTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +132,15 @@ public class JFrameInterface extends javax.swing.JFrame {
             }
         });
 
+        FlowerNameJLabel.setText("Flower's Name:");
+
+        FlowerNameJTextField.setEditable(false);
+        FlowerNameJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FlowerNameJTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,26 +150,21 @@ public class JFrameInterface extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(SizeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SizeSliderTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(showFactsButton)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(showFactsButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(SizeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SizeSliderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ColorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -165,7 +173,11 @@ public class JFrameInterface extends javax.swing.JFrame {
                             .addComponent(RootComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(SoilComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PerfumeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 206, Short.MAX_VALUE))))
+                        .addGap(43, 43, 43)
+                        .addComponent(FlowerNameJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(FlowerNameJTextField)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +198,9 @@ public class JFrameInterface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SeasonComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(FlowerNameJLabel)
+                    .addComponent(FlowerNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RootComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,7 +231,7 @@ public class JFrameInterface extends javax.swing.JFrame {
             clips.eval("(assert (Size (PlantSize " + Size + ")))");
             
             String LifeCycle = LifeCycleComboBox.getSelectedItem().toString().toLowerCase();
-            if(!LifeCycle.equals(" "))
+            if(LifeCycle.length()>2)
                 clips.eval("(assert (LifeCycle (PLifeCycle " + LifeCycle + ")))");
                 
             String Color = ColorComboBox.getSelectedItem().toString().toLowerCase();
@@ -225,11 +239,11 @@ public class JFrameInterface extends javax.swing.JFrame {
                 clips.eval("(assert (Color (PlantColor " + Color + ")))");
             
             String Season = SeasonComboBox.getSelectedItem().toString().toLowerCase();
-            if(!Season.equals(" "))
+            if(Season.length()>2)
                 clips.eval("(assert (Season (PlantSeason " + Season + ")))");
             
             String Root = RootComboBox.getSelectedItem().toString().toLowerCase();
-            if(!Root.equals(" "))
+            if(Root.length()>2)
                 clips.eval("(assert (Root (PlantRoot " + Root + ")))");
             
             String Soil = SoilComboBox.getSelectedItem().toString().toLowerCase();
@@ -240,8 +254,16 @@ public class JFrameInterface extends javax.swing.JFrame {
             if(Perfume.length()>2)
                 clips.eval("(assert (Perfume (PlantPerfume " + Perfume + ")))");
             
-            
             clips.run();
+            
+            FactAddressValue fv = (FactAddressValue) ((MultifieldValue)clips.eval("(find-fact ((?f Name)) TRUE)")).get(0); 
+            String FlowersName;
+        try {
+            FlowersName = fv.getFactSlot("PlantName").toString();
+            FlowerNameJTextField.setText(FlowersName);
+        } catch (Exception ex) {
+            Logger.getLogger(JFrameInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
             
     }//GEN-LAST:event_startButtonActionPerformed
 
@@ -275,6 +297,10 @@ public class JFrameInterface extends javax.swing.JFrame {
     private void SizeSliderTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SizeSliderTextFieldKeyTyped
                 // TODO add your handling code here:
     }//GEN-LAST:event_SizeSliderTextFieldKeyTyped
+
+    private void FlowerNameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FlowerNameJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FlowerNameJTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,6 +339,8 @@ public class JFrameInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ColorComboBox;
+    private javax.swing.JLabel FlowerNameJLabel;
+    private javax.swing.JTextField FlowerNameJTextField;
     private javax.swing.JComboBox<String> LifeCycleComboBox;
     private javax.swing.JComboBox<String> PerfumeComboBox;
     private javax.swing.JComboBox<String> RootComboBox;
