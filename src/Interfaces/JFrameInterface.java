@@ -5,13 +5,8 @@
  */
 package Interfaces;
 
-import java.awt.TextField;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import net.sf.clipsrules.jni.*;
 
 /**
@@ -31,6 +26,7 @@ public class JFrameInterface extends javax.swing.JFrame {
         clips.load("flower.clp");
         initComponents();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Clips Flowers Expert System");
     }
 
     /**
@@ -326,7 +322,7 @@ public class JFrameInterface extends javax.swing.JFrame {
             String FlowerLCycle = fv4.getFactSlot("PLifeCycle").toString();
             
             fullMessage[n++] = "The Life Cycle of the Flower is " + FlowerLCycle + " year(s)";
-            fullMessage[n++] = "So The Life Type of the Flower is " + FlowerLType;
+            fullMessage[n++] = "So the Life Type of the Flower is " + FlowerLType;
         } catch (Exception ex) {}
         
         //Color
@@ -362,7 +358,7 @@ public class JFrameInterface extends javax.swing.JFrame {
             FactAddressValue fv8 = (FactAddressValue) mv8.get(0);
             String FlowerSoil = fv8.getFactSlot("PlantSoil").toString();
             
-            fullMessage[n++] = "The Soil Type of The Flower is " + FlowerSoil;
+            fullMessage[n++] = "The Soil Type of the Flower is " + FlowerSoil;
         } catch (Exception ex) {}
         
         //Perfumed
