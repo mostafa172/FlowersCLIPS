@@ -41,7 +41,7 @@
 	(assert (LifeType (PLifeType annual))))
 
 (defrule PerennialType "Rule Six"
-	(LifeCycle (PLifeCycle more)) 
+	(LifeCycle (PLifeCycle many)) 
 =>
 	(assert (LifeType (PLifeType perennial))))
 
@@ -103,6 +103,7 @@
 	(Season (PlantSeason spring))
 	(Root (PlantRoot bulb))
 	(Perfume (PlantPerfume true))
+	(Height (PlantHeight small))
 	(LifeType (PLifeType perennial))
 =>
 	(assert (Name (PlantName Lily))))

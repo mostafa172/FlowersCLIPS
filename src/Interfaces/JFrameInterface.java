@@ -44,8 +44,8 @@ public class JFrameInterface extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
-        startButton = new javax.swing.JButton();
-        showFactsButton = new javax.swing.JButton();
+        StartJButton = new javax.swing.JButton();
+        HowJButton = new javax.swing.JButton();
         SizeSlider = new javax.swing.JSlider();
         ColorComboBox = new javax.swing.JComboBox<>();
         SeasonComboBox = new javax.swing.JComboBox<>();
@@ -66,17 +66,18 @@ public class JFrameInterface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        startButton.setText("start");
-        startButton.addActionListener(new java.awt.event.ActionListener() {
+        StartJButton.setText("start");
+        StartJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startButtonActionPerformed(evt);
+                StartJButtonActionPerformed(evt);
             }
         });
 
-        showFactsButton.setText("Show Facts");
-        showFactsButton.addActionListener(new java.awt.event.ActionListener() {
+        HowJButton.setText("How?");
+        HowJButton.setEnabled(false);
+        HowJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showFactsButtonActionPerformed(evt);
+                HowJButtonActionPerformed(evt);
             }
         });
 
@@ -98,13 +99,28 @@ public class JFrameInterface extends javax.swing.JFrame {
 
         SeasonComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Summer", "Spring", "Autumn", "Winter" }));
 
-        LifeCycleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "One", "More" }));
+        LifeCycleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "One", "Many" }));
+        LifeCycleComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LifeCycleComboBoxActionPerformed(evt);
+            }
+        });
 
         RootComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Bulb", "Root" }));
 
         SoilComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Acidic", "Loose", "Fertile", "Rich", "Well-Drained" }));
+        SoilComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SoilComboBoxActionPerformed(evt);
+            }
+        });
 
         PerfumeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "True", "False" }));
+        PerfumeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PerfumeComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Size");
 
@@ -148,45 +164,51 @@ public class JFrameInterface extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(showFactsButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(SizeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(SizeSliderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ColorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SeasonComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LifeCycleComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(RootComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SoilComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PerfumeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(43, 43, 43)
-                        .addComponent(FlowerNameJLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FlowerNameJTextField)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(StartJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SoilComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PerfumeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(SizeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(SizeSliderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(RootComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SeasonComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ColorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(LifeCycleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(43, 43, 43)
+                                    .addComponent(FlowerNameJLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(FlowerNameJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(HowJButton))))))
+                .addGap(55, 55, 55))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ColorComboBox, LifeCycleComboBox, PerfumeComboBox, RootComboBox, SeasonComboBox, SoilComboBox});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SizeSliderTextField)
-                    .addComponent(SizeSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SizeSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LifeCycleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,29 +223,34 @@ public class JFrameInterface extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(FlowerNameJLabel)
                     .addComponent(FlowerNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(RootComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(HowJButton)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RootComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SoilComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(SoilComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PerfumeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showFactsButton)
-                    .addComponent(startButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(StartJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addGap(4, 4, 4))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ColorComboBox, LifeCycleComboBox, PerfumeComboBox, RootComboBox, SeasonComboBox, SoilComboBox});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
+    private void StartJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartJButtonActionPerformed
             // TODO add your handling code here:
             clips.reset();
             
@@ -256,22 +283,111 @@ public class JFrameInterface extends javax.swing.JFrame {
             
             clips.run();
             
-            FactAddressValue fv = (FactAddressValue) ((MultifieldValue)clips.eval("(find-fact ((?f Name)) TRUE)")).get(0); 
-            String FlowersName;
-        try {
-            FlowersName = fv.getFactSlot("PlantName").toString();
-            FlowerNameJTextField.setText(FlowersName);
-        } catch (Exception ex) {
-            Logger.getLogger(JFrameInterface.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            try {
+                MultifieldValue mv = (MultifieldValue) (clips.eval("(find-all-facts ((?f Name)) TRUE)")); 
+                FactAddressValue fv = (FactAddressValue) mv.get(mv.size()-1);
+                String FlowersName = fv.getFactSlot("PlantName").toString();
+                FlowerNameJTextField.setText(FlowersName);
+                HowJButton.setEnabled(true);
+            } catch (Exception ex) {
+                FlowerNameJTextField.setText("None!");
+            }
             
-    }//GEN-LAST:event_startButtonActionPerformed
+    }//GEN-LAST:event_StartJButtonActionPerformed
 
-    private void showFactsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showFactsButtonActionPerformed
+    private void HowJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HowJButtonActionPerformed
+        String[] fullMessage = new String[11];
+        int n = 0;
+        //Size and Height
+        try {
+            MultifieldValue mv1 = (MultifieldValue) (clips.eval("(find-fact ((?f Height)) TRUE)")); 
+            FactAddressValue fv1 = (FactAddressValue) mv1.get(0);
+            String FlowerHeight = fv1.getFactSlot("PlantHeight").toString(); 
+            
+            MultifieldValue mv2 = (MultifieldValue) (clips.eval("(find-fact ((?f Size)) TRUE)")); 
+            FactAddressValue fv2 = (FactAddressValue) mv2.get(0);
+            String FlowerSize = fv2.getFactSlot("PlantSize").toString();
+            
+            fullMessage[n++] = "The Size of the Flower is " + FlowerSize;
+            fullMessage[n++] = "So The Height of the Flower is " + FlowerHeight;
+        } catch (Exception ex) {
+          clips.eval("(facts)");  
+          System.out.println(fullMessage);
+        }
         
-        clips.eval("(facts)");
+        //Life Cycle and Life Type
+        try {
+            MultifieldValue mv3 = (MultifieldValue) (clips.eval("(find-fact ((?f LifeType)) TRUE)")); 
+            FactAddressValue fv3 = (FactAddressValue) mv3.get(0);
+            String FlowerLType = fv3.getFactSlot("PLifeType").toString(); 
+            
+            MultifieldValue mv4 = (MultifieldValue) (clips.eval("(find-fact ((?f LifeCycle)) TRUE)")); 
+            FactAddressValue fv4 = (FactAddressValue) mv4.get(0);
+            String FlowerLCycle = fv4.getFactSlot("PLifeCycle").toString();
+            
+            fullMessage[n++] = "The Life Cycle of the Flower is " + FlowerLCycle + " year(s)";
+            fullMessage[n++] = "So The Life Type of the Flower is " + FlowerLType;
+        } catch (Exception ex) {}
         
-    }//GEN-LAST:event_showFactsButtonActionPerformed
+        //Color
+        try {
+            MultifieldValue mv5 = (MultifieldValue) (clips.eval("(find-fact ((?f Color)) TRUE)")); 
+            FactAddressValue fv5 = (FactAddressValue) mv5.get(0);
+            String FlowerColor = fv5.getFactSlot("PlantColor").toString();
+            
+            fullMessage[n++] = "The Flower's Color is " + FlowerColor;
+        } catch (Exception ex) {}
+        
+        //Season
+        try {
+            MultifieldValue mv6 = (MultifieldValue) (clips.eval("(find-fact ((?f Season)) TRUE)")); 
+            FactAddressValue fv6 = (FactAddressValue) mv6.get(0);
+            String FlowerSeason = fv6.getFactSlot("PlantSeason").toString();
+            
+            fullMessage[n++] = "The Flower's Season is " + FlowerSeason;
+        } catch (Exception ex) {}
+        
+        //Root
+        try {
+            MultifieldValue mv7 = (MultifieldValue) (clips.eval("(find-fact ((?f Root)) TRUE)")); 
+            FactAddressValue fv7 = (FactAddressValue) mv7.get(0);
+            String FlowerRoot = fv7.getFactSlot("PlantRoot").toString();
+            
+            fullMessage[n++] = "The Root Type of the Flower is " + FlowerRoot;
+        } catch (Exception ex) {}
+        
+        //Soil
+        try {
+            MultifieldValue mv8 = (MultifieldValue) (clips.eval("(find-fact ((?f Soil)) TRUE)")); 
+            FactAddressValue fv8 = (FactAddressValue) mv8.get(0);
+            String FlowerSoil = fv8.getFactSlot("PlantSoil").toString();
+            
+            fullMessage[n++] = "The Soil Type of The Flower is " + FlowerSoil;
+        } catch (Exception ex) {}
+        
+        //Perfumed
+        try {
+            MultifieldValue mv9 = (MultifieldValue) (clips.eval("(find-fact ((?f Perfume)) TRUE)")); 
+            FactAddressValue fv9 = (FactAddressValue) mv9.get(0);
+            String isPerfumed = fv9.getFactSlot("PlantPerfume").toString();
+            
+            if(isPerfumed.equals("true"))
+                fullMessage[n++] = "The Flower is perfumed";
+            else if(isPerfumed.equals("false"))
+                fullMessage[n++] = "The Flower isn't perfumed";
+        } catch (Exception ex) {}
+        
+        //Flower Name
+        try {
+                MultifieldValue mv10 = (MultifieldValue) (clips.eval("(find-all-facts ((?f Name)) TRUE)")); 
+                FactAddressValue fv10 = (FactAddressValue) mv10.get(mv10.size()-1);
+                String FlowersName = fv10.getFactSlot("PlantName").toString();
+                
+                fullMessage[n++] = "Therefore The Flower's name is " + FlowersName;
+            } catch (Exception ex) {}
+        
+        JOptionPane.showMessageDialog(this, fullMessage);
+    }//GEN-LAST:event_HowJButtonActionPerformed
 
     private void ColorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColorComboBoxActionPerformed
         // TODO add your handling code here:
@@ -282,11 +398,13 @@ public class JFrameInterface extends javax.swing.JFrame {
         try {
         Integer.parseInt(sliderText);
         int x = Integer.parseInt(sliderText);
+        clips.eval("(facts)");
         SizeSlider.setValue(x);
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, "Please insert Valid Number Only");
             SizeSliderTextField.setText("");
         }
+        
     }//GEN-LAST:event_SizeSliderTextFieldActionPerformed
 
     private void SizeSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SizeSliderStateChanged
@@ -301,6 +419,18 @@ public class JFrameInterface extends javax.swing.JFrame {
     private void FlowerNameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FlowerNameJTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FlowerNameJTextFieldActionPerformed
+
+    private void PerfumeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfumeComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PerfumeComboBoxActionPerformed
+
+    private void SoilComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SoilComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SoilComboBoxActionPerformed
+
+    private void LifeCycleComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LifeCycleComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LifeCycleComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,6 +471,7 @@ public class JFrameInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ColorComboBox;
     private javax.swing.JLabel FlowerNameJLabel;
     private javax.swing.JTextField FlowerNameJTextField;
+    private javax.swing.JButton HowJButton;
     private javax.swing.JComboBox<String> LifeCycleComboBox;
     private javax.swing.JComboBox<String> PerfumeComboBox;
     private javax.swing.JComboBox<String> RootComboBox;
@@ -348,6 +479,7 @@ public class JFrameInterface extends javax.swing.JFrame {
     private javax.swing.JSlider SizeSlider;
     private javax.swing.JTextField SizeSliderTextField;
     private javax.swing.JComboBox<String> SoilComboBox;
+    private javax.swing.JButton StartJButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
@@ -357,7 +489,5 @@ public class JFrameInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JButton showFactsButton;
-    private javax.swing.JButton startButton;
     // End of variables declaration//GEN-END:variables
 }
